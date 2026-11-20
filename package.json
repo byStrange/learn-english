@@ -16,8 +16,8 @@
     "build:demo": "tsc -b && vite build --mode demo --outDir dist-demo"
   },
   "dependencies": {
-    "@curialy/ui": "https://curialy.tech/ui-kit/curialy-ui-0.7.16.tgz",
-    "@curialy/ui-theme-butter": "https://curialy.tech/ui-kit/curialy-ui-theme-butter-0.7.16.tgz",
+    "@curialy/ui": "file:vendor/curialy/curialy-ui-0.7.16.tgz",
+    "@curialy/ui-theme-butter": "file:vendor/curialy/curialy-ui-theme-butter-0.7.16.tgz",
     "@heroicons/react": "2.2.0",
     "@stylexjs/stylex": "0.19.2",
     "@supabase/supabase-js": "2.119.2",
