@@ -1,0 +1,15 @@
+{
+  "name": "learn-english-tts",
+  "private": true,
+  "type": "module",
+  "description": "Generates the app's natural voice clips with Kokoro-82M (Apache-2.0). Kept apart from the app so the app install and CI never download the speech model or ONNX runtime.",
+  "scripts": {
+    "make": "tsx make-audio.ts",
+    "samples": "tsx make-audio.ts --samples"
+  },
+  "dependencies": {
+    "ffmpeg-static": "5.3.0",
+    "kokoro-js": "1.2.1",
+    "tsx": "4.23.15"
+  }
+}

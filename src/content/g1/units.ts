@@ -1,0 +1,376 @@
+import type {Unit} from '../types';
+import {build, card, form, formula, gap, hear, listen, pick, typeIt} from '../helpers';
+
+/**
+ * Group 1 (Abdulloh, Said Umar). One unit per block; each lesson ~10 tasks, ~7 minutes.
+ * Units 1–5 revisit what was already taught in class (present simple, past simple,
+ * V1/V2/V3, S + V + O, time words), so gaps show up early.
+ */
+
+export const quickCheck: Unit = {
+  id: 'g1-u1',
+  title: 'Quick check',
+  role: 'subject',
+  description: 'What do you remember? This shows your teacher where the gaps are.',
+  lessons: [
+    {
+      id: 'g1-qc-1',
+      title: 'What do you remember?',
+      minutes: 7,
+      newItems: ['w-i', 'w-he', 'w-she', 'v-play', 'v-go', 'v-eat', 'w-football', 'w-school', 'w-yesterday', 'w-every-day', 'w-two-hours-ago'],
+      formula: formula('Subject + verb + object', 'I:s play:v football:o every_day:t', [
+        'I play football every day.',
+        'She goes to school.',
+        'Yesterday I played football.',
+      ]),
+      exercises: [
+        build('I:s play:v football:o'),
+        pick('w-football'),
+        listen('v-play'),
+        form('v-go', 'v2'),
+        form('v-eat', 'v3'),
+        gap('Yesterday I ___ football.', 'played', ['play', 'played', 'plays']),
+        gap('He ___ to school every day.', 'goes', ['go', 'goes', 'went']),
+        hear('I went to school two hours ago.', 'When?', 'two hours ago', ['every day', 'now', 'two hours ago']),
+        build('She:s goes:v to_school:o every_day:t', {extra: 'go:v'}),
+        listen('w-yesterday'),
+      ],
+    },
+  ],
+};
+
+export const foundations: Unit = {
+  id: 'g1-u2',
+  title: 'Foundations',
+  role: 'subject',
+  description: 'Pronouns, am / is / are, and the sentence pattern S + V + O.',
+  lessons: [
+    {
+      id: 'g1-f-1',
+      title: 'I, you, he, she, it, we, they',
+      minutes: 7,
+      newItems: ['w-i', 'w-you', 'w-he', 'w-she', 'w-it', 'w-we', 'w-they', 'w-mother', 'w-father', 'w-brother', 'w-sister'],
+      formula: formula(
+        'The subject: who does it',
+        'I:s you:s he:s she:s it:s we:s they:s',
+        ['My father works. → He works.', 'My sister reads. → She reads.', 'Ali and I play. → We play.'],
+        {joiner: '·', note: 'The subject comes first in an English sentence.'},
+      ),
+      exercises: [
+        pick('w-he'),
+        pick('w-she'),
+        listen('w-they'),
+        listen('w-we'),
+        gap('My father is a teacher. ___ works at a school.', 'He', ['He', 'She', 'They']),
+        gap('Ali and I are friends. ___ play football.', 'We', ['We', 'They', 'He']),
+        build('My_sister:s helps:v my_mother:o'),
+        hear('They play football after school.', 'Who plays?', 'they', ['he', 'they', 'she']),
+        pick('w-mother'),
+        listen('w-brother'),
+      ],
+    },
+    {
+      id: 'g1-f-2',
+      title: 'am, is, are',
+      minutes: 7,
+      newItems: ['w-am', 'w-is', 'w-are', 'w-happy', 'w-tired', 'w-hungry', 'w-teacher', 'w-friend', 'w-now'],
+      formula: formula('am · is · are', 'I:s am:v', ['I am ten years old.', 'She is my sister.', 'We are friends.'], {
+        rows: ['he_/_she_/_it:s is:v', 'you_/_we_/_they:s are:v'],
+      }),
+      exercises: [
+        gap('I ___ ten years old.', 'am', ['am', 'is', 'are']),
+        gap('She ___ my sister.', 'is', ['am', 'is', 'are']),
+        gap('They ___ hungry.', 'are', ['am', 'is', 'are']),
+        listen('w-tired'),
+        pick('w-happy'),
+        build('We:s are:v friends:o'),
+        gap('Abdulloh ___ at school today.', 'is', ['am', 'is', 'are']),
+        hear('I am tired now.', 'When?', 'now', ['every day', 'now', 'yesterday']),
+        listen('w-teacher'),
+        pick('w-friend'),
+      ],
+    },
+    {
+      id: 'g1-f-3',
+      title: 'Subject + verb + object',
+      minutes: 7,
+      newItems: ['v-like', 'v-want', 'v-watch', 'w-tv', 'w-ball', 'w-book', 'w-bread', 'w-tea', 'w-apple'],
+      formula: formula('S + V + O', 'I:s like:v apples:o', ['I like apples.', 'We watch TV.', 'They want a new ball.'], {
+        note: 'Who? + does what? + what?',
+      }),
+      exercises: [
+        build('I:s like:v apples:o'),
+        build('We:s watch:v TV:o'),
+        build('They:s want:v a_new_ball:o', {extra: 'watches:v'}),
+        pick('w-apple'),
+        listen('w-book'),
+        listen('v-watch'),
+        pick('v-want'),
+        hear('We watch TV every day.', 'When?', 'every day', ['every day', 'now', 'yesterday']),
+        gap('I ___ tea.', 'like', ['like', 'apple', 'happy']),
+        listen('w-bread'),
+      ],
+    },
+  ],
+};
+
+export const presentSimple: Unit = {
+  id: 'g1-u3',
+  title: 'Present simple',
+  role: 'verb',
+  description: 'Things you do every day: I play, he plays, do you…?',
+  lessons: [
+    {
+      id: 'g1-ps-1',
+      title: 'I, you, we, they + V1',
+      minutes: 7,
+      newItems: ['v-drink', 'v-walk', 'w-breakfast', 'w-milk', 'w-egg', 'w-in-the-morning', 'w-usually'],
+      formula: formula('Present simple', 'I_/_you_/_we_/_they:s V1:v object:o every_day:t', [
+        'I eat breakfast every day.',
+        'We walk to school.',
+        'They drink milk in the morning.',
+      ]),
+      exercises: [
+        build('I:s eat:v breakfast:o every_day:t'),
+        pick('w-breakfast'),
+        listen('w-milk'),
+        pick('v-drink'),
+        gap('We ___ to school every day.', 'walk', ['walk', 'walks', 'walked']),
+        hear('They drink milk in the morning.', 'When?', 'in the morning', ['in the morning', 'at night', 'yesterday']),
+        build('You:s usually:t drink:v tea:o'),
+        listen('w-usually'),
+        typeIt('w-egg'),
+        listen('v-walk'),
+      ],
+    },
+    {
+      id: 'g1-ps-2',
+      title: 'He, she, it + s',
+      minutes: 7,
+      newItems: ['v-help', 'v-cook', 'v-clean', 'v-live', 'w-room', 'w-dinner', 'w-house'],
+      formula: formula('He / she / it + V1 + s', 'I_/_you_/_we_/_they:s play:v', ['He plays football.', 'She cooks dinner.', 'My father cleans the car.'], {
+        rows: ['he_/_she_/_it:s plays:v'],
+        note: 'Only he, she and it add -s.',
+      }),
+      exercises: [
+        gap('He ___ football every day.', 'plays', ['play', 'plays', 'played']),
+        gap('My mother ___ dinner.', 'cooks', ['cook', 'cooks', 'cooked']),
+        build('She:s cleans:v her_room:o', {extra: 'clean:v'}),
+        build('My_father:s helps:v me:o'),
+        listen('v-cook'),
+        listen('w-room'),
+        pick('v-clean'),
+        hear('She helps her mother every day.', 'Who helps?', 'she', ['he', 'she', 'they']),
+        typeIt('w-house'),
+        gap('They ___ in Cairo.', 'live', ['live', 'lives', 'lived']),
+      ],
+    },
+    {
+      id: 'g1-ps-3',
+      title: 'do / does: questions and "not"',
+      minutes: 7,
+      newItems: ['w-do', 'w-does', 'w-dont', 'w-doesnt', 'w-rice', 'w-water'],
+      formula: formula(
+        'Questions and "not"',
+        'Do:v I_/_you_/_we_/_they:s V1:v',
+        ['Do you like rice?', 'Does he play football?', "She doesn't drink tea."],
+        {rows: ['Does:v he_/_she_/_it:s V1:v', "he_/_she_/_it:s doesn't_+_V1:v"], note: 'After does and doesn’t the verb has no -s.'},
+      ),
+      exercises: [
+        gap('___ you like rice?', 'Do', ['Do', 'Does', 'Is']),
+        gap('___ she play football?', 'Does', ['Do', 'Does', 'Are']),
+        gap('He ___ drink milk.', "doesn't", ["don't", "doesn't", "isn't"]),
+        gap('I ___ watch TV at night.', "don't", ["don't", "doesn't", 'am not']),
+        build('Do:v you:s drink:v water:o', {prompt: 'Make the question'}),
+        listen('w-water'),
+        listen('w-rice'),
+        hear('Does he play football? Yes, he does.', 'What is the answer?', 'Yes, he does.', ['Yes, he does.', "No, he doesn't.", 'Yes, I do.']),
+        build("She:s doesn't_like:v tea:o"),
+        pick('w-water'),
+      ],
+    },
+    {
+      id: 'g1-ps-4',
+      title: 'always, usually, never',
+      minutes: 7,
+      newItems: ['w-always', 'w-sometimes', 'w-often', 'w-never', 'w-at-night', 'w-after-school', 'v-read', 'v-sleep'],
+      formula: formula(
+        'How often?',
+        'Subject:s always_/_usually_/_never:t V1:v object:o',
+        ['I always eat breakfast.', 'He never watches TV at night.', 'We sometimes play football after school.'],
+        {note: 'The how-often word goes before the verb.'},
+      ),
+      exercises: [
+        build('I:s always:t eat:v breakfast:o'),
+        build('He:s never:t watches:v TV:o at_night:t'),
+        listen('w-always'),
+        listen('w-never'),
+        pick('w-sometimes'),
+        hear('We sometimes play football after school.', 'How often?', 'sometimes', ['always', 'sometimes', 'never']),
+        gap('She ___ reads a book at night.', 'usually', ['usually', 'yesterday', 'now']),
+        typeIt('w-often'),
+        listen('v-sleep'),
+        gap('Abdulloh ___ to school every day.', 'goes', ['go', 'goes', 'went']),
+      ],
+    },
+  ],
+};
+
+export const pastRegular: Unit = {
+  id: 'g1-u4',
+  title: 'Past simple: -ed',
+  role: 'time',
+  description: 'Yesterday, last week, two hours ago: played, watched, studied.',
+  lessons: [
+    {
+      id: 'g1-pr-1',
+      title: 'played, watched, cleaned',
+      minutes: 7,
+      newItems: ['v-play', 'v-watch', 'v-walk', 'v-clean', 'v-help', 'w-yesterday', 'w-last-night'],
+      formula: formula('Past simple', 'Subject:s V2_(V1_+_ed):v object:o yesterday:t', [
+        'I played football yesterday.',
+        'She watched TV last night.',
+        'We cleaned our room.',
+      ]),
+      exercises: [
+        form('v-play', 'v2'),
+        form('v-watch', 'v2'),
+        gap('Yesterday I ___ football.', 'played', ['play', 'plays', 'played']),
+        build('She:s watched:v TV:o last_night:t'),
+        listen('w-yesterday'),
+        listen('w-last-night'),
+        hear('We cleaned our room yesterday.', 'When?', 'yesterday', ['every day', 'now', 'yesterday']),
+        typeIt('v-help'),
+        build('My_brother:s helped:v me:o yesterday:t', {extra: 'helps:v'}),
+        pick('w-last-night'),
+      ],
+    },
+    {
+      id: 'g1-pr-2',
+      title: 'lived, studied, stopped',
+      minutes: 7,
+      newItems: ['v-live', 'v-study', 'v-stop', 'v-like', 'v-cook', 'v-wash', 'v-start', 'v-finish', 'w-homework', 'w-car'],
+      formula: formula('Spelling the -ed', 'play:v played:v', ['like → liked', 'study → studied', 'stop → stopped'], {
+        joiner: '→',
+        rows: ['like:v liked:v', 'study:v studied:v', 'stop:v stopped:v'],
+        note: 'e → +d · consonant + y → ied · short word → double the last letter.',
+      }),
+      exercises: [
+        form('v-live', 'v2'),
+        form('v-study', 'v2'),
+        form('v-stop', 'v2'),
+        form('v-like', 'v2'),
+        form('v-cook', 'v3'),
+        gap('He ___ his homework at five o’clock.', 'finished', ['finish', 'finished', 'finishes']),
+        listen('v-wash'),
+        listen('v-start'),
+        hear('I studied English yesterday.', 'Which verb did you hear?', 'studied', ['study', 'studies', 'studied']),
+        build('We:s washed:v the_car:o last_week:t'),
+      ],
+    },
+    {
+      id: 'g1-pr-3',
+      title: 'ago, last week, yesterday',
+      minutes: 7,
+      newItems: ['w-ago', 'w-two-hours-ago', 'w-last-week', 'w-today', 'v-visit', 'v-call', 'w-uncle', 'w-cousin'],
+      formula: formula('Past time words', 'Subject:s V2:v object:o two_hours_ago_/_last_week:t', [
+        'I called my uncle two hours ago.',
+        'We visited our cousins last week.',
+        'Yesterday she helped her mother.',
+      ]),
+      exercises: [
+        build('I:s called:v my_uncle:o two_hours_ago:t'),
+        build('We:s visited:v our_cousins:o last_week:t', {extra: 'visit:v'}),
+        hear('She called her mother two hours ago.', 'When?', 'two hours ago', ['two hours ago', 'last week', 'every day']),
+        hear('We play football every day.', 'Present or past?', 'present', ['present', 'past']),
+        listen('w-ago'),
+        listen('w-last-week'),
+        pick('w-uncle'),
+        gap('Today I play football. Yesterday I ___ football too.', 'played', ['play', 'played', 'plays']),
+        typeIt('w-today'),
+        form('v-visit', 'v2'),
+      ],
+    },
+  ],
+};
+
+export const irregular: Unit = {
+  id: 'g1-u5',
+  title: 'Irregular verbs: V1 · V2 · V3',
+  role: 'verb',
+  description: '24 verbs that don’t take -ed, in three batches of eight.',
+  lessons: [
+    {
+      id: 'g1-irr-1',
+      title: 'Batch 1: go, eat, see…',
+      minutes: 8,
+      newItems: ['v-go', 'v-eat', 'v-drink', 'v-see', 'v-come', 'v-do', 'v-have', 'v-get'],
+      formula: formula('V1 · V2 · V3', 'go:v went:v gone:v', ['eat · ate · eaten', 'see · saw · seen', 'have · had · had'], {
+        joiner: '·',
+        note: 'Irregular verbs don’t take -ed. Learn the three forms together.',
+      }),
+      exercises: [
+        form('v-go', 'v2'),
+        form('v-eat', 'v2'),
+        form('v-see', 'v3'),
+        form('v-drink', 'v2'),
+        form('v-come', 'v2'),
+        form('v-have', 'v2'),
+        card('v-get'),
+        listen('v-do'),
+        hear('I saw my friend yesterday.', 'Which verb did you hear?', 'saw', ['see', 'saw', 'seen']),
+        build('We:s ate:v rice:o yesterday:t', {extra: 'eat:v'}),
+      ],
+    },
+    {
+      id: 'g1-irr-2',
+      title: 'Batch 2: make, take, write…',
+      minutes: 8,
+      newItems: ['v-make', 'v-take', 'v-give', 'v-write', 'v-read', 'v-say', 'v-buy', 'v-sleep', 'w-shop'],
+      formula: formula('V1 · V2 · V3', 'write:v wrote:v written:v', ['make · made · made', 'buy · bought · bought', 'read · read · read (say "red")'], {
+        joiner: '·',
+      }),
+      exercises: [
+        form('v-make', 'v2'),
+        form('v-take', 'v3'),
+        form('v-give', 'v2'),
+        form('v-write', 'v2'),
+        form('v-say', 'v2'),
+        form('v-buy', 'v2'),
+        card('v-read'),
+        listen('v-write'),
+        hear('My father bought bread this morning.', 'Which verb did you hear?', 'bought', ['buy', 'bought', 'buys']),
+        build('I:s slept:v at_night:t', {extra: 'sleep:v'}),
+      ],
+    },
+    {
+      id: 'g1-irr-3',
+      title: 'Batch 3: run, swim, ride…',
+      minutes: 8,
+      newItems: ['v-run', 'v-swim', 'v-sit', 'v-speak', 'v-know', 'v-think', 'v-find', 'v-ride', 'w-bike', 'w-park'],
+      formula: formula('V1 · V2 · V3', 'ride:v rode:v ridden:v', ['run · ran · run', 'swim · swam · swum', 'think · thought · thought'], {
+        joiner: '·',
+      }),
+      exercises: [
+        form('v-run', 'v2'),
+        form('v-swim', 'v3'),
+        form('v-sit', 'v2'),
+        form('v-speak', 'v2'),
+        form('v-know', 'v2'),
+        form('v-think', 'v2'),
+        form('v-find', 'v2'),
+        form('v-ride', 'v3'),
+        listen('v-speak'),
+        hear('He rode his bike to the park.', 'Which verb did you hear?', 'rode', ['ride', 'rode', 'ridden']),
+      ],
+    },
+  ],
+};
+
+export const comingSoon: Unit[] = [
+  {id: 'g1-u6', title: "Past simple: didn't and Did you…?", role: 'time', lessons: [], status: 'coming-soon'},
+  {id: 'g1-u7', title: 'Present continuous: am / is / are + -ing', role: 'verb', lessons: [], status: 'coming-soon'},
+  {id: 'g1-u8', title: 'Future: going to / will', role: 'time', lessons: [], status: 'coming-soon'},
+];
+
+export const g1Units: Unit[] = [quickCheck, foundations, presentSimple, pastRegular, irregular, ...comingSoon];

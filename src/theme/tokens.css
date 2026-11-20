@@ -1,0 +1,95 @@
+/* "Grammar in colour" — tokens for the parts Curialy UI has no component for
+   (grammar tiles, path nodes, flashcard, streak chip, tab indicator). */
+@layer app {
+  :root {
+    /* Grammar roles: tint / border / text (text ≥ 5.4:1 on its tint) */
+    --g-subject-bg: #ddf5e5;
+    --g-subject-border: #1e8c4e;
+    --g-subject-text: #1c6b3a;
+    --g-verb-bg: #ffe4df;
+    --g-verb-border: #d93a2b;
+    --g-verb-text: #b3261e;
+    --g-object-bg: #ddebff;
+    --g-object-border: #1a73c9;
+    --g-object-text: #0b4f94;
+    --g-time-bg: #fff0b8;
+    --g-time-border: #c98f00;
+    --g-time-text: #6b4a00;
+
+    --ink: #172033;
+    --slate: #475069;
+    --page: #f3f7ff;
+    --paper: #ffffff;
+    --line: #c9d3e6;
+    --line-strong: #8792a8;
+    --flame: #e0620f;
+    --track-g1: #1d5fd1;
+    --track-g1-tint: #e3ecff;
+    --sun: #ffc83d;
+    --sun-tint: #fff4d1;
+    --coral: #ff6f59;
+    --coral-tint: #ffe2dc;
+    --locked: #e6eaf2;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+
+    --radius-tile: 16px;
+    --radius-card: 24px;
+
+    --cx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --cx-duration-fast: 150ms;
+    --cx-duration-base: 300ms;
+    --cx-duration-reveal: 800ms;
+    --cx-stagger: 80ms;
+
+    --tile-min-h: 56px;
+    --prompt-size: 40px;
+    --action-h: 52px;
+    --tabbar-h: 64px;
+    --ring: 0 0 0 1px oklch(0 0 0 / 0.06), 0 1px 2px -1px oklch(0 0 0 / 0.06), 0 2px 4px oklch(0 0 0 / 0.04);
+    --ring-up: 0 0 0 1px oklch(0 0 0 / 0.06), 0 -2px 8px oklch(0 0 0 / 0.06);
+  }
+
+  [data-track='g2'] {
+    --tile-min-h: 72px;
+    --prompt-size: 56px;
+    --action-h: 64px;
+    --tabbar-h: 72px;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    background: var(--page);
+  }
+
+  body {
+    background: var(--page);
+    color: var(--ink);
+  }
+
+  button,
+  a,
+  [role='button'] {
+    touch-action: manipulation;
+  }
+
+  /* Focus ring for the custom controls (Curialy components draw their own). */
+  .u-focus:focus-visible,
+  .choice:focus-visible,
+  .path-node:focus-visible,
+  .tab:focus-visible,
+  .learner-link:focus-visible,
+  .tile-btn:focus-visible,
+  .plain-link:focus-visible,
+  .flashcard-face:focus-visible {
+    outline: 3px solid #1d5fd1;
+    outline-offset: 2px;
+  }
+}
