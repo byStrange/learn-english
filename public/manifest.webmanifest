@@ -1,0 +1,11 @@
+{
+  "name": "Learn English",
+  "short_name": "Learn English",
+  "description": "English practice between lessons.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F3F7FF",
+  "theme_color": "#1D5FD1",
+  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}
