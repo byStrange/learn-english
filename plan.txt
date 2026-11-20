@@ -1,0 +1,36 @@
+Goal: Build a mobile-first English learning app in byStrange/learn-english for two separate groups of relatives in Egypt, one for Abdulloh and Said Umar and one for Said Ali and Said Amir.
+
+Context:
+- Group 1 is Abdulloh (10, my uncle's son) and Said Umar. Both have studied English before but are very low, and Abdulloh's book left gaps, so I can't just continue from it. I've taught him present simple (formula), past simple, regular and irregular verbs, V1/V2/V3, S + V + object, and time expressions like yesterday, today, and two hours ago.
+- Group 2 is Said Ali (Alixon, about 8) and Said Amir (Amirxon, 12), my aunt's sons. It should follow the same kind of program, but must be kid-friendly.
+- I haven't picked the tech stack, the goal for group 2, or how the audio will be produced. Those are yours to propose.
+
+Requirements:
+- Before writing code, send me a proposal: platform type, main screens, lesson structure, the group 2 goal, the stack, and the audio approach.
+- Two separate tracks, each with its own lessons and progress.
+- Core English first: core tenses, starting with present simple and past simple, regular and irregular verbs with V1/V2/V3, and S + V + object.
+- Repetition: tasks come back many times, with spaced review, until the learner is comfortable.
+- Listening exercises, not only reading.
+- Interactive vocabulary memorization that grows as the lessons progress.
+- Duolingo-style streaks and progress, designed mainly for mobile.
+- Group 2 screens are colourful and attractive, with short sessions and large text and buttons, so the kids don't get bored.
+
+Constraints:
+- Mobile-first; it must also work on a desktop browser.
+- Keep the setup simple enough for me to run and maintain myself.
+
+Deliverables:
+- The written proposal, before any build.
+- After I approve it, the app in byStrange/learn-english, with a README on how to run it and how to add lessons.
+- A browser preview I can open on a phone-sized screen.
+
+Acceptance criteria:
+- The proposal arrives before any code is pushed.
+- Both tracks are reachable from the home screen, and their progress is kept separately.
+- A lesson shows a review task that repeats, plus a visible streak counter.
+- A listening exercise plays audio for a vocabulary item and asks for an answer.
+- Finishing a lesson updates the streak and progress, and they still show after a page reload.
+- Group 2 screens show the goal and use larger text and buttons.
+- The streak and repetition logic has tests, and they pass.
+
+Note: I want the app to be companion for my teaching not a replacement, so i would need a panel for my own self that is designed for desktop so that i can see how they're doing and my own teaching plan for the whole course, and like a roadmap with resources and plans
